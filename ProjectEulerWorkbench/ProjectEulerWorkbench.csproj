@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6935B03A-F67A-4513-9DF0-6F81853B1D5A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectEulerWorkbench</RootNamespace>
+    <AssemblyName>ProjectEulerWorkbench</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContinuedFractions.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IProblem.cs" />
+    <Compile Include="Primes.cs" />
+    <Compile Include="Problems\Problem082.cs" />
+    <Compile Include="Problems\Problem083.cs" />
+    <Compile Include="Problems\Problem001.cs" />
+    <Compile Include="Problems\Problem010.cs" />
+    <Compile Include="Problems\Problem011.cs" />
+    <Compile Include="Problems\Problem061.cs" />
+    <Compile Include="Problems\Problem062.cs" />
+    <Compile Include="Problems\Problem063.cs" />
+    <Compile Include="Problems\Problem064.cs" />
+    <Compile Include="Problems\Problem065.cs" />
+    <Compile Include="Problems\Problem066.cs" />
+    <Compile Include="Problems\Problem068.cs" />
+    <Compile Include="Problems\Problem070.cs" />
+    <Compile Include="Problems\Problem071.cs" />
+    <Compile Include="Problems\Problem073.cs" />
+    <Compile Include="Problems\Problem074.cs" />
+    <Compile Include="Problems\Problem075.cs" />
+    <Compile Include="Problems\Problem078.cs" />
+    <Compile Include="Problems\Problem079.cs" />
+    <Compile Include="Problems\Problem080.cs" />
+    <Compile Include="Problems\Problem081.cs" />
+    <Compile Include="Problems\Problem114.cs" />
+    <Compile Include="Problems\Problem115.cs" />
+    <Compile Include="Problems\Problem012.cs" />
+    <Compile Include="Problems\Problem013.cs" />
+    <Compile Include="Problems\Problem014.cs" />
+    <Compile Include="Problems\Problem015.cs" />
+    <Compile Include="Problems\Problem016.cs" />
+    <Compile Include="Problems\Problem017.cs" />
+    <Compile Include="Problems\Problem018.cs" />
+    <Compile Include="Problems\Problem019.cs" />
+    <Compile Include="Problems\Problem002.cs" />
+    <Compile Include="Problems\Problem020.cs" />
+    <Compile Include="Problems\Problem021.cs" />
+    <Compile Include="Problems\Problem022.cs" />
+    <Compile Include="Problems\Problem023.cs" />
+    <Compile Include="Problems\Problem024.cs" />
+    <Compile Include="Problems\Problem025.cs" />
+    <Compile Include="Problems\Problem026.cs" />
+    <Compile Include="Problems\Problem027.cs" />
+    <Compile Include="Problems\Problem028.cs" />
+    <Compile Include="Problems\Problem029.cs" />
+    <Compile Include="Problems\Problem003.cs" />
+    <Compile Include="Problems\Problem030.cs" />
+    <Compile Include="Problems\Problem031.cs" />
+    <Compile Include="Problems\Problem032.cs" />
+    <Compile Include="Problems\Problem033.cs" />
+    <Compile Include="Problems\Problem034.cs" />
+    <Compile Include="Problems\Problem035.cs" />
+    <Compile Include="Problems\Problem355.cs" />
+    <Compile Include="Problems\Problem357.cs" />
+    <Compile Include="Problems\Problem036.cs" />
+    <Compile Include="Problems\Problem037.cs" />
+    <Compile Include="Problems\Problem038.cs" />
+    <Compile Include="Problems\Problem039.cs" />
+    <Compile Include="Problems\Problem004.cs" />
+    <Compile Include="Problems\Problem040.cs" />
+    <Compile Include="Problems\Problem041.cs" />
+    <Compile Include="Problems\Problem042.cs" />
+    <Compile Include="Problems\Problem043.cs" />
+    <Compile Include="Problems\Problem044.cs" />
+    <Compile Include="Problems\Problem045.cs" />
+    <Compile Include="Problems\Problem046.cs" />
+    <Compile Include="Problems\Problem047.cs" />
+    <Compile Include="Problems\Problem048.cs" />
+    <Compile Include="Problems\Problem049.cs" />
+    <Compile Include="Problems\Problem005.cs" />
+    <Compile Include="Problems\Problem050.cs" />
+    <Compile Include="Problems\Problem051.cs" />
+    <Compile Include="Problems\Problem052.cs" />
+    <Compile Include="Problems\Problem053.cs" />
+    <Compile Include="Problems\Problem054.cs" />
+    <Compile Include="Problems\Problem055.cs" />
+    <Compile Include="Problems\Problem056.cs" />
+    <Compile Include="Problems\Problem057.cs" />
+    <Compile Include="Problems\Problem058.cs" />
+    <Compile Include="Problems\Problem059.cs" />
+    <Compile Include="Problems\Problem006.cs" />
+    <Compile Include="Problems\Problem060.cs" />
+    <Compile Include="Problems\Problem007.cs" />
+    <Compile Include="Problems\Problem076.cs" />
+    <Compile Include="Problems\Problem077.cs" />
+    <Compile Include="Problems\Problem008.cs" />
+    <Compile Include="Problems\Problem009.cs" />
+    <Compile Include="Problems\Problem069.cs" />
+    <Compile Include="Problems\Problem358.cs" />
+    <Compile Include="Problems\Problem072.cs" />
+    <Compile Include="Problems\Problem359.cs" />
+    <Compile Include="Problems\Problem998.cs" />
+    <Compile Include="Problems\Problem999.cs" />
+    <Compile Include="Sets.cs" />
+    <Compile Include="TotientSerialCalculator.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Resources\cipher1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\keylog.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\matrix.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\names.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\poker.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\seqeunces.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\triangle.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\words.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectEuler.Library\ProjectEuler.Library.csproj">
+      <Project>{D7BE5679-E1A8-46C0-A019-133C4DFB9AB3}</Project>
+      <Name>ProjectEuler.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Readme\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

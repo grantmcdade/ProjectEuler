@@ -27,9 +27,9 @@ using Xunit;
 
 namespace ProjectEulerTests
 {
-    public class ProjrectEuler
+    public class ProjectEuler
     {
-        private string[] _correctAnswers = {
+        private readonly string[] _correctAnswers = {
             "", "233168","4613732","6857","906609","232792560","25164150","104743","40824", "31875000", "142913828922", // Answers 1 - 10
             "70600674","76576500","5537376230","837799","137846528820","1366","21124","1074","171","648",               // Answers 11 - 20
             "31626","871198282","4179871","2783915460","4782","983","-59231","669171001","9183","443839",               // Answers 21 - 30

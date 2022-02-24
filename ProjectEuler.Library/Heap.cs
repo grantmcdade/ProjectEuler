@@ -26,8 +26,8 @@ namespace ProjectEuler.Library
 {
     public class Heap<T>
     {
-        private IComparer<T> _comparer;
-        private List<T> _data;
+        private readonly IComparer<T> _comparer;
+        private readonly List<T> _data;
 
         public ReadOnlyCollection<T> Data
         {
@@ -62,9 +62,7 @@ namespace ProjectEuler.Library
 
             if (largest != index)
             {
-                T temp = _data[largest];
-                _data[largest] = _data[index];
-                _data[index] = temp;
+                (_data[index], _data[largest]) = (_data[largest], _data[index]);
                 MaxHeapify(largest, heapSize);
             }
         }
@@ -93,19 +91,19 @@ namespace ProjectEuler.Library
 
         public Heap()
         {
-            _data = new List<T>() { default(T) };
+            _data = new List<T>() { default };
             _comparer = Comparer<T>.Default;
         }
 
         public Heap(IComparer<T> comparer)
         {
-            _data = new List<T>() { default(T) };
+            _data = new List<T>() { default };
             _comparer = comparer;
         }
 
         public Heap(List<T> data)
         {
-            _data = new List<T>() { default(T) };
+            _data = new List<T>() { default };
             _data.AddRange(data);
             _comparer = Comparer<T>.Default;
             BuildMaxHeap();
@@ -113,7 +111,7 @@ namespace ProjectEuler.Library
 
         public Heap(List<T> data, IComparer<T> comparer)
         {
-            _data = new List<T>() { default(T) };
+            _data = new List<T>() { default };
             _data.AddRange(data);
             _comparer = comparer;
             BuildMaxHeap();
@@ -138,16 +136,13 @@ namespace ProjectEuler.Library
         public void IncreaseKey(int index, T key)
         {
             if (_comparer.Compare(key, _data[index]) < 0)
-                throw new Exception("The new key may not be smaller than the current key");
+                throw new InvalidOperationException("The new key may not be smaller than the current key");
 
             _data[index] = key;
             var parentIndex = index / 2;
             while (index > 1 && _comparer.Compare(_data[parentIndex], _data[index]) < 0)
             {
-                T temp = _data[index];
-                _data[index] = _data[parentIndex];
-                _data[parentIndex] = temp;
-
+                (_data[parentIndex], _data[index]) = (_data[index], _data[parentIndex]);
                 index = parentIndex;
                 parentIndex = index / 2;
             }
@@ -164,7 +159,7 @@ namespace ProjectEuler.Library
 
         public bool Validate()
         {
-            if (_comparer.Compare(_data[0], default(T)) != 0)
+            if (_comparer.Compare(_data[0], default) != 0)
                 return false;
 
             return Validate(1);

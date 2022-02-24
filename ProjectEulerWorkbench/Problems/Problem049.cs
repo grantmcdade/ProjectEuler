@@ -52,7 +52,7 @@ namespace ProjectEulerWorkbench.Problems
                     }
                     if (primesSequence.Count >= 3)
                     {
-                        // Found posible solution!
+                        // Found possible solution!
                         bool isSequence = false;
                         Tuple<ulong, ulong, ulong> sequence = null;
                         for (int i = 0; i < primesSequence.Count - 1; i++)

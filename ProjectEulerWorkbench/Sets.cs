@@ -91,7 +91,7 @@ namespace ProjectEulerWorkbench.Problems
                         // the permutation is larger than the set limit we are imposing
                         if (subsetSize != 0 && bitsHandled >= subsetSize)
                         {
-                            // Incriment the bits handled counter to flag this as an invalid subset
+                            // Increment the bits handled counter to flag this as an invalid subset
                             ++bitsHandled;
                             break;
                         }

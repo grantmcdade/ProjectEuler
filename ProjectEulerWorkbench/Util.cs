@@ -24,7 +24,7 @@ using System.IO;
 using System.Reflection;
 using System.Collections;
 
-using variable = System.UInt64; // Commmon place to change the type of 'variable'
+using variable = System.UInt64; // Common place to change the type of 'variable'
 using Euclid = System.Tuple<System.UInt64, System.UInt64, System.UInt64>;
 
 namespace ProjectEulerWorkbench.Problems

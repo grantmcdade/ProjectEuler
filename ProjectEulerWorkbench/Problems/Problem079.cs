@@ -38,7 +38,7 @@ namespace ProjectEulerWorkbench.Problems
 
         public string Description
         {
-            get { return "By analysing a user's login attempts, can you determine the secret numeric passcode?"; }
+            get { return "By analysing a user's login attempts, can you determine the secret numeric pass code?"; }
         }
 
         public string Solve()

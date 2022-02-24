@@ -30,7 +30,7 @@ namespace ProjectEuler.Library
         private float[] _totients;
 
         /// <summary>
-        /// Set to true if the sive should also prepare a list of totient values
+        /// Set to true if the sieve should also prepare a list of totient values
         /// </summary>
         public bool IncludeTotients { get; set; }
 

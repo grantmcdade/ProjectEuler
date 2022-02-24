@@ -704,7 +704,7 @@ namespace ProjectEulerWorkbench.Problems
                     }
                 }
 
-                // Check if all the elemnts in this set are co-prime
+                // Check if all the elements in this set are co-prime
                 bool coprimeSet = true;
                 for (int j = 0; j < subset.Count(); j++)
                 {

@@ -33,7 +33,7 @@ namespace ProjectEulerWorkbench
             if (lastProject != null)
                 ProblemNumber.Value = Convert.ToDecimal(lastProject);
 
-            // Confogure the DI container
+            // Configure the DI container
             _container.RegisterType<IPathProvider, PathProvider>();
             _container.RegisterTypes(
                 AllClasses.FromLoadedAssemblies(),

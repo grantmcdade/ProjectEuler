@@ -27,7 +27,7 @@ using Xunit;
 
 namespace ProjectEulerTests
 {
-    public class ProjectEuler
+    public class ProblemsUnitTest
     {
         private readonly string[] _correctAnswers = {
             "", "233168","4613732","6857","906609","232792560","25164150","104743","40824", "31875000", "142913828922", // Answers 1 - 10
@@ -38,7 +38,7 @@ namespace ProjectEulerTests
             "121313", "142857", "4075", "376","249", "972", "153", "26241", "107359", ""                                // Answers 51 - 60
             };
 
-        private UnityContainer _container = null;
+        private UnityContainer _container;
 
         private IProblem GetProblemInstance(int problemNumber)
         {

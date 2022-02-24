@@ -27,7 +27,7 @@ namespace ProjectEulerWorkbench.Problems
     {
         private Primes()
         {
-            // Empty prive constructor to prevent this class from being instantiated
+            // Empty Primes constructor to prevent this class from being instantiated
         }
 
         public static bool MillerRabin(ulong n)

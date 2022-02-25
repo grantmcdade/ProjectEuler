@@ -24,7 +24,7 @@ using System.Text;
 
 namespace ProjectEuler.Library
 {
-    public class Heap<T>
+    public class Heap<T> : IHeap<T>
     {
         private readonly IComparer<T> _comparer;
         private readonly List<T> _data;

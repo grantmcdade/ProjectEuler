@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using ProjectEulerWorkbench.Problems;
-using Microsoft.Win32;
-using Microsoft.Practices.Unity;
+﻿using Microsoft.Win32;
 using ProjectEuler.Library;
+using ProjectEulerWorkbench.Problems;
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
+using Scrutor;
 
 namespace ProjectEulerWorkbench
 {
@@ -20,7 +17,7 @@ namespace ProjectEulerWorkbench
         private string _answer;
         private string _timeTaken;
         private IProblem _currentProblem;
-        private UnityContainer _container = new UnityContainer();
+        private IServiceProvider _serviceProvider;
 
         public MainForm()
         {
@@ -33,12 +30,14 @@ namespace ProjectEulerWorkbench
             if (lastProject != null)
                 ProblemNumber.Value = Convert.ToDecimal(lastProject);
 
-            // Configure the DI container
-            _container.RegisterType<IPathProvider, PathProvider>();
-            _container.RegisterTypes(
-                AllClasses.FromLoadedAssemblies(),
-                WithMappings.None,
-                WithName.Default);
+            var collection = new ServiceCollection();
+            collection.AddSolutionUtilities();
+            collection.Scan(scan => scan
+            .FromAssemblyOf<IProblem>()
+            .AddClasses(classes => classes.AssignableTo<IProblem>())
+            .AsSelf()
+            .WithTransientLifetime());
+            _serviceProvider = collection.BuildServiceProvider();
         }
 
         private void Go_Click(object sender, EventArgs e)
@@ -50,7 +49,7 @@ namespace ProjectEulerWorkbench
                 Type problemType = Type.GetType($"ProjectEulerWorkbench.Problems.Problem{Convert.ToInt32(ProblemNumber.Value):000}, ProjectEulerWorkbench");
                 if (problemType != null)
                 {
-                    _currentProblem = _container.Resolve(problemType) as IProblem;
+                    _currentProblem = _serviceProvider.GetRequiredService(problemType) as IProblem;
                     Description.Text = _currentProblem.Description;
                     Answer.Text = "Calculating...";
                     Go.Enabled = false;

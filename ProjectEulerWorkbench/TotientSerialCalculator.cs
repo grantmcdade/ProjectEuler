@@ -30,8 +30,7 @@ namespace ProjectEulerWorkbench
         public long K {get; set;}
         public long Phi {get; set;}
     }
-
-    public class TotientSerialCalculator
+    public class TotientSerialCalculator : ITotientSerialCalculator
     {
         //Implements an extremely efficient Serial Totient(phi) calculator   '
         //  This implements an optimized windowed Sieve of Eratosthenes.  The'
@@ -72,7 +71,7 @@ namespace ProjectEulerWorkbench
         // this is the primary memory consumption for the class and it'
         // is 16 * Sqrt(N) Bytes, which is O(Sqrt(N)).'
         public NumberFactors[] Numbers;
-        // For N=10^12 (1 trilion), this will be 16MB, which should be bearable anywhere.'
+        // For N=10^12 (1 trillion), this will be 16MB, which should be bearable anywhere.'
         //(note that the Primes() array is a secondary memory consumer'
         //  at O(pi(Sqrt(N)), which will be within 10x of O(Sqrt(N)))'
 
@@ -228,7 +227,7 @@ namespace ProjectEulerWorkbench
                 Numbers[i].UnFactored = i + FirstValue;
                 //initially equal to the number itself'
                 Numbers[i].Phi = 1;
-                //starts at mulplicative identity(1)'
+                //starts at multiplicative identity(1)'
             }
         }
 

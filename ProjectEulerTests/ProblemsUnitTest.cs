@@ -16,7 +16,7 @@
     along with this program.If not, see<http://www.gnu.org/licenses/>.
 */
 
-using Microsoft.Practices.Unity;
+// using Microsoft.Practices.Unity;
 using Moq;
 using ProjectEuler.Library;
 using ProjectEulerTests.Properties;
@@ -24,6 +24,7 @@ using ProjectEulerWorkbench.Problems;
 using System;
 using System.IO;
 using Xunit;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ProjectEulerTests
 {
@@ -38,34 +39,44 @@ namespace ProjectEulerTests
             "121313", "142857", "4075", "376","249", "972", "153", "26241", "107359", ""                                // Answers 51 - 60
             };
 
-        private UnityContainer _container;
+        private IServiceProvider _serviceProvider;
+
+        private IServiceProvider BuildServiceProvider()
+        {
+            var collection = new ServiceCollection();
+
+            collection.AddSolutionUtilities();
+            collection.Scan(scan => scan
+            .FromAssemblyOf<IProblem>()
+            .AddClasses(classes => classes.AssignableTo<IProblem>())
+            .AsSelf()
+            .WithTransientLifetime());
+
+            return collection.BuildServiceProvider();
+        }
 
         private IProblem GetProblemInstance(int problemNumber)
         {
-            if ( _container == null)
+            if (_serviceProvider == null)
             {
-                _container = new UnityContainer();
+                _serviceProvider = BuildServiceProvider();
             }
             var typeName = $"ProjectEulerWorkbench.Problems.Problem{problemNumber:000}, ProjectEulerWorkbench";
             var type = Type.GetType(typeName, false);
             if (type != null)
             {
-                _container.RegisterType(type);
-                return (IProblem)_container.Resolve(type);
+                return (IProblem)_serviceProvider.GetRequiredService(type);
             }
 
             return null;
         }
 
-        private void AddFileNameMock(string fileName)
-        {
-            var mock = new Mock<IPathProvider>();
-            var settings = new Settings();
-            mock.Setup(provider => provider.GetFullyQualifiedPath(fileName)).Returns(Path.Combine(settings.ResourcePath, fileName));
-
-            _container = new UnityContainer();
-            _container.RegisterInstance(mock.Object);
-        }
+        //private void AddFileNameMock(string fileName)
+        //{
+        //    var mock = new Mock<IPathProvider>();
+        //    var settings = new Settings();
+        //    mock.Setup(provider => provider.GetFullyQualifiedPath(fileName)).Returns(Path.Combine(settings.ResourcePath, fileName));
+        //}
 
         private void ExecuteProblem(int problemNumber)
         {
@@ -167,7 +178,7 @@ namespace ProjectEulerTests
         [Fact]
         public void Problem018ReturnsCorrectAnswer()
         {
-            AddFileNameMock("triangle.txt");
+            // AddFileNameMock("triangle.txt");
             ExecuteProblem(18);
         }
         [Fact]
@@ -188,7 +199,7 @@ namespace ProjectEulerTests
         [Fact]
         public void Problem022ReturnsCorrectAnswer()
         {
-            AddFileNameMock("names.txt");
+            // AddFileNameMock("names.txt");
             ExecuteProblem(22);
         }
         [Fact]
@@ -289,7 +300,7 @@ namespace ProjectEulerTests
         [Fact]
         public void Problem042ReturnsCorrectAnswer()
         {
-            AddFileNameMock("words.txt");
+            // AddFileNameMock("words.txt");
             ExecuteProblem(42);
         }
         [Fact]
@@ -350,7 +361,7 @@ namespace ProjectEulerTests
         [Fact]
         public void Problem054ReturnsCorrectAnswer()
         {
-            AddFileNameMock("poker.txt");
+            // AddFileNameMock("poker.txt");
             ExecuteProblem(54);
         }
         [Fact]
@@ -376,7 +387,7 @@ namespace ProjectEulerTests
         [Fact]
         public void Problem059ReturnsCorrectAnswer()
         {
-            AddFileNameMock("cipher1.txt");
+            // AddFileNameMock("cipher1.txt");
             ExecuteProblem(59);
         }
 

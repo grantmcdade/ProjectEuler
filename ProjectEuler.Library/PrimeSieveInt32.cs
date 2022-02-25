@@ -24,7 +24,7 @@ using System.Collections;
 
 namespace ProjectEuler.Library
 {
-    public class PrimeSieveInt32
+    public class PrimeSieveInt32 : IPrimeSieveInt32
     {
         private BitArray _primes;
         private float[] _totients;

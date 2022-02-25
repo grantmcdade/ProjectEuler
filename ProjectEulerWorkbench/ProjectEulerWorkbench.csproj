@@ -34,7 +34,6 @@
     <PackageReference Include="CommonServiceLocator" Version="2.0.6" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Scrutor" Version="4.0.0" />
-    <PackageReference Include="Unity" Version="5.11.10" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Deployment" />

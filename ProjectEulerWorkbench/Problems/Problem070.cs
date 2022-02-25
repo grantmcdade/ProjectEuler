@@ -26,6 +26,12 @@ namespace ProjectEulerWorkbench.Problems
 {
     class Problem070 : IProblem
     {
+        private readonly IPrimeSieveInt32 _primeSieveInt32;
+        public Problem070(IPrimeSieveInt32 primeSieveInt32)
+        {
+            _primeSieveInt32 = primeSieveInt32;
+        }
+        
         public string Description
         {
             get { return "Investigate values of n for which φ(n) is a permutation of n."; }
@@ -34,13 +40,13 @@ namespace ProjectEulerWorkbench.Problems
         public string Solve()
         {
             const int limit = 10000000;
-            var sieve = new PrimeSieveInt32() { IncludeTotients = true };
-            sieve.Initialise(limit);
+            _primeSieveInt32.IncludeTotients = true;
+            _primeSieveInt32.Initialise(limit);
             var minN = Double.MaxValue;
             var n = 0;
             for (int i = 2; i < limit; i++)
             {
-                var phi = sieve.Phi(i);
+                var phi = _primeSieveInt32.Phi(i);
 
                 int[] digits = Sets.ToDigits((ulong)i);
                 int[] phiDigits = Sets.ToDigits((ulong)phi);

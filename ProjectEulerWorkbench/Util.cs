@@ -285,7 +285,7 @@ namespace ProjectEulerWorkbench.Problems
             workingSet.CopyTo(primeFactors);
             Array.Sort<variable>(primeFactors);
 
-            // Calcualte all the possible factors by testing multiples of the prime factors
+            // Calculate all the possible factors by testing multiples of the prime factors
             for (variable i = 0; i < (variable)primeFactors.Length; i++)
             {
                 var s = primeFactors[i] * 2;
@@ -293,7 +293,7 @@ namespace ProjectEulerWorkbench.Problems
                     if (value % k == 0) workingSet.Add(k);
             }
 
-            // Ensure that the nubers 1 and the number itself are in the list
+            // Ensure that the numbers 1 and the number itself are in the list
             workingSet.Add(1);
             workingSet.Add(value);
 
@@ -307,14 +307,14 @@ namespace ProjectEulerWorkbench.Problems
 
         #region Coprime
         /// <summary>
-        /// Tests if two numbers are coprime, that is, thier greatest common divisor is 1
+        /// Tests if two numbers are coprime, that is, their greatest common divisor is 1
         /// </summary>
         /// <param name="a">First number</param>
         /// <param name="b">Second number</param>
         /// <returns>True if the numbers are a coprime pair</returns>
         public static bool Coprime(variable a, variable b)
         {
-            // Variables a and b are co-prime if thier greatest common divisor is 1
+            // Variables a and b are co-prime if their greatest common divisor is 1
             var factorsA = GetFactors(a);
             var factorsB = GetFactors(b);
 
@@ -413,11 +413,11 @@ namespace ProjectEulerWorkbench.Problems
 
         #region Euclid Formula
         /// <summary>
-        /// Euclids formula for generating a pythagorian triple
+        /// Euclid's formula for generating a pythagorean triple
         /// </summary>
         /// <param name="m">Arbitrary positive integer with m > n</param>
         /// <param name="n">Arbitrary positive integer with m > n</param>
-        /// <returns>A pythagorian triple</returns>
+        /// <returns>A pythagorean triple</returns>
         public static Euclid Euclid(variable m, variable n)
         {
             if (m <= n) throw new ArgumentException("m > n");
@@ -447,7 +447,7 @@ namespace ProjectEulerWorkbench.Problems
         #endregion
 
         #region Working with digit arrays
-        [Obsolete("Use the Stes.DigitCount method, it's faster")]
+        [Obsolete("Use the Sets.DigitCount method, it's faster")]
         public static int Length(variable value)
         {
             if (value < 10)

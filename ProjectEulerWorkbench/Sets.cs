@@ -35,7 +35,7 @@ namespace ProjectEulerWorkbench.Problems
         #region Lexicographical Permutation Generator
         /// <summary>
         /// Generates each lexicographic permutation which can be made with the given
-        /// array of digits and calls the handler deligate for each one
+        /// array of digits and calls the handler delegate for each one
         /// </summary>
         /// <param name="digits">The array of digits</param>
         /// <param name="handler">The delegate to be called for each permutation</param>

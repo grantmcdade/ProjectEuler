@@ -4,6 +4,8 @@
     <Sessions>
       <Item Id="MainSession">
         <ShowFailed>True</ShowFailed>
+        <ShowNone>True</ShowNone>
+        <ShowPassed>True</ShowPassed>
       </Item>
     </Sessions>
   </Options>

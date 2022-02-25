@@ -27,7 +27,7 @@ namespace ProjectEuler.Library
         /// <summary>
         /// Get an enumerator of all the prime numbers produced by this sieve
         /// </summary>
-        /// <returns>The prime numbers below the limit specified during initilisation</returns>
+        /// <returns>The prime numbers below the limit specified during initialisation</returns>
         IEnumerable<int> GetPrimes();
 
         /// <summary>

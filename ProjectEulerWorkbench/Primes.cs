@@ -23,7 +23,7 @@ using System.Text;
 
 namespace ProjectEulerWorkbench.Problems
 {
-    sealed class Primes
+    internal sealed class Primes
     {
         private Primes()
         {

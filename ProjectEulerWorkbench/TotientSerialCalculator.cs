@@ -25,11 +25,6 @@ using System.Diagnostics;
 
 namespace ProjectEulerWorkbench
 {
-    public class TotientPairEventArgs : EventArgs
-    {
-        public long K {get; set;}
-        public long Phi {get; set;}
-    }
     public class TotientSerialCalculator : ITotientSerialCalculator
     {
         //Implements an extremely efficient Serial Totient(phi) calculator   '
@@ -42,7 +37,7 @@ namespace ProjectEulerWorkbench
         //                                                                   '
         // MEM Complexity is O( Sqrt(N) ).                                   '
         //                                                                   '
-        // This is probalby the ideal combination, as any attempt to further '
+        // This is probably the ideal combination, as any attempt to further '
         //reduce memory will almost certainly result in disproportionate increases'
         //in CPU complexity, and vice-versa.                                 '
 
@@ -231,6 +226,7 @@ namespace ProjectEulerWorkbench
             }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Spellchecker", "CRRSP05:A misspelled word has been found", Justification = "It's a name")]
         public long PiMax(long x)
         {
             //estimate of pi(n) == {primes <= (n)} that is never less'

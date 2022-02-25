@@ -26,6 +26,12 @@ namespace ProjectEulerWorkbench.Problems
 {
     class Problem072 : IProblem
     {
+        private readonly IPrimeSieveInt32 _primeSieveInt32;
+        public Problem072(IPrimeSieveInt32 primeSieveInt32)
+        {
+            _primeSieveInt32 = primeSieveInt32;
+        }
+
         public string Description
         {
             get { return "How many elements would be contained in the set of reduced proper fractions for d <= 1,000,000?"; }
@@ -34,13 +40,13 @@ namespace ProjectEulerWorkbench.Problems
         public string Solve()
         {
             const int limit = 1000000;
-            var sieve = new PrimeSieveInt32() { IncludeTotients = false };
-            sieve.Initialise(limit);
+            _primeSieveInt32.IncludeTotients = false;
+            _primeSieveInt32.Initialise(limit);
 
             var sum = 0UL;
             for (int d = 2; d <= limit; d++)
             {
-                sum += (ulong)sieve.Phi(d);
+                sum += (ulong)_primeSieveInt32.Phi(d);
             }
             return Convert.ToString(sum);
         }
